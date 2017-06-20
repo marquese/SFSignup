@@ -1,0 +1,279 @@
+﻿body {
+    background-color: rgb(51,51,57);
+    color: rgb(238,238,238);
+    font-family: "Avenir Next", Lato, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    height: 100%;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+table {
+    background-color: rgb(41, 41, 41);
+    border-radius: 10px;
+    padding: 20px 20px 14px;
+}
+
+td {
+    border: 1px solid rgb(51,51,57);
+    width: 100px;
+    height: 100px;
+}
+
+#Event {
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 2px;
+    background-color: rgb(255, 187, 51);
+    color: rgb(51,51,57);
+    opacity = 0.9;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(238, 238, 238);
+    background-color: rgb(119, 119, 136);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.125);
+    border-radius: 5px;
+}
+
+    input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+        align-items: flex-start;
+        text-align: center;
+        cursor: default;
+        color: buttontext;
+        background-color: buttonface;
+        box-sizing: border-box;
+        padding: 2px 6px 3px;
+        border-width: 2px;
+        border-style: outset;
+        border-color: buttonface;
+        border-image: initial;
+    }
+
+user agent stylesheet input, textarea, select, button {
+    background-color: #667;
+    border-color: #d9d9d9 #ccc #b3b3b3;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: default;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 39px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+#mainselection select {
+    background-color: #667;
+    border-color: #d9d9d9 #ccc #b3b3b3;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: default;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 39px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    font-family: "Avenir Next", Lato, Helvetica, sans-serif;
+    color: rgb(238, 238, 238);
+}
+
+#mainselection {
+}
+
+user agent stylesheet input, textarea, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
+}
+
+.cc-selector input {
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+    .cc-selector input:active + .raidcard {
+        opacity: .9;
+    }
+
+    .cc-selector input:checked + .raidcard {
+        -webkit-filter: none;
+        -moz-filter: none;
+        filter: none;
+    }
+
+.clear {
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+}
+
+.raidcard {
+    font-weight: 600;
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    z-index: -1;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+    filter: brightness(1.8) grayscale(1) opacity(.7);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    overflow: hidden;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+    .raidcard:hover {
+        -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+        filter: brightness(1.2) grayscale(.5) opacity(.9);
+    }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    background-color: rgb(51,51,57);
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 2px 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        /*top: -300px;*/
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        /*top: -300px;*/
+        opacity: 0
+    }
+
+    to {
+    /* top: 0; */
+        opacity: 1
+    }
+}

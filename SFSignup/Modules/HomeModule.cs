@@ -11,19 +11,19 @@ namespace SFSignup.Modules
     {
         public HomeModule()
         {
-            this.Get["/"] = _ => new HomeModel("Hello world");
+            
+
+            this.Get["/"] = _ => new HomeModel();
         }
 
-        private class HomeModel
+        public class HomeModel
         {
-            public HomeModel(string text)
+            public HomeModel()
             {
-                this.Text = text;
+                this.Raiders = (List<Raider>)MongoDatabase.GetRaiders();
             }
 
-            public string Text { get; }
-
-            public string Title => "Home Page";
+            public List<Raider> Raiders { get; }
         }
     }
 }

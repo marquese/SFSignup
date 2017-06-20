@@ -77,7 +77,7 @@ namespace SFSignup
 
         public static IEnumerable<Raider> GetRaiders()
         {
-            return Database.GetCollection<Raider>(Settings.Mongo.Collections.Raiders).Find(FilterDefinition<Raider>.Empty).ToEnumerable();
+            return Database.GetCollection<Raider>(Settings.Mongo.Collections.Raiders).Find(FilterDefinition<Raider>.Empty).ToList();
         }
     }
 }

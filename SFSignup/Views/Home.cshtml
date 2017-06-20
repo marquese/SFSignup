@@ -1,0 +1,20 @@
+﻿@using System.Collections.Generic
+@using SFSignup
+@using System.Windows.Media
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<SFSignup.Modules.HomeModule.HomeModel>
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+<link href="~/Content/style.css" rel="stylesheet" />
+
+@foreach (Raider raider in Model.Raiders)
+{
+
+    @{
+        System.Windows.Media.Color c = SFSignup.WoW.ClassColours.GetClassColour(raider.Class);
+        string colour = string.Format("#{0:X2}{1:X2}{2:X2}", c.R, c.G, c.B);
+    }
+        <h3 style="color:@colour;">
+            @raider.Name
+        </h3>
+
+        }
