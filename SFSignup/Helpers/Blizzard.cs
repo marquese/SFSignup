@@ -28,15 +28,20 @@ namespace SFSignup
             return outputData;
         }
 
+        internal static JObject GetPlayer(string name)
+        {
+            return JObject.Parse(Request("character/argent%20dawn/" + name));
+        }
+
         private static string Request(string url)
         {
-            var u = "https://eu.api.battle.net/wow/" + url + "/?locale=en_GB&apikey=" + Settings.Blizzard.APIKey;
+            var u = "https://eu.api.battle.net/wow/" + url + "?locale=en_GB&apikey=" + Settings.Blizzard.Key;
             return new WebClient().DownloadString(u);
         }
 
         private static async Task<string> RequestAsync(string url)
         {
-            var u = "https://eu.api.battle.net/wow/" + url + "/?locale=en_GB&apikey=" + Settings.Blizzard.APIKey;
+            var u = "https://eu.api.battle.net/wow/" + url + "/?locale=en_GB&apikey=" + Settings.Blizzard.Key;
             var result = await new WebClient().DownloadStringTaskAsync(new Uri(u));
             return result;
         }
