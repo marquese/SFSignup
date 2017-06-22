@@ -3,16 +3,38 @@ using SFSignup.WoW;
 using System.Security.Cryptography;
 using System.Text;
 using MongoDB.Bson;
+using Newtonsoft.Json;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace SFSignup
 {
     public class Raider
     {
-        public string Name;
-        public PlayerClass Class;
+        [BsonId]
+        public ObjectId _id;
+
+        public string Name { get; set; }
+
+        private PlayerClass _Class = PlayerClass.Unknown;
+
+        public PlayerClass Class
+            {
+            get
+            {
+                if (_Class == PlayerClass.Unknown)
+                    _Class = Blizzard.GetPlayer(Name)["class"].ToObject<PlayerClass>();
+                return _Class;
+            }
+            set
+            {
+                _Class = value;
+            }
+            }
 
         private string key;
 
+        [JsonIgnore]
+        
         public string Key
         {
             get
@@ -26,10 +48,6 @@ namespace SFSignup
                 key = value;
             }
         }
-
-
-        public ObjectId _id { get; internal set; }
-
 
         public void GenerateAPIKey()
         {
