@@ -18,7 +18,8 @@ namespace SFSignup
             var yamlObject = deserializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(DefaultSettingsPath));
 
             Mongo.URL = yamlObject["mongodb_url"];
-            Blizzard.APIKey = yamlObject["blizzard_api_key"];
+            Blizzard.Key = yamlObject["blizzard_api_key"];
+            WarcraftLogs.Key = yamlObject["warcraftLogs_api_key"];
         }
 
 
@@ -34,9 +35,13 @@ namespace SFSignup
             }
         }
 
+        public sealed class WarcraftLogs
+        {
+            public static string Key { get; internal set; }
+        }
         public sealed class Blizzard
         {
-            public static string APIKey { get; internal set; }
+            public static string Key { get; internal set; }
         }
         
 
