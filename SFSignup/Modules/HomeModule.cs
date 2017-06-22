@@ -1,4 +1,5 @@
 ﻿using Nancy;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,14 @@ namespace SFSignup.Modules
     {
         public HomeModule()
         {
+            After.AddItemToEndOfPipeline((ctx) => ctx.Response
+            .WithHeader("Access-Control-Allow-Origin", "*")
+            .WithHeader("Access-Control-Allow-Methods", "POST,GET")
+            .WithHeader("Access-Control-Allow-Headers", "Accept, Origin, Content-type"));
+           
+            this.Get["/events"] = _ => JsonConvert.SerializeObject(MongoDatabase.GetEvents());
+            this.Get["/raiders"] = _ => JsonConvert.SerializeObject(MongoDatabase.GetRaiders());
             
-
-            this.Get["/"] = _ => new HomeModel();
         }
 
         public class HomeModel
