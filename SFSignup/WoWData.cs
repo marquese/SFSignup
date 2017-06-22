@@ -63,17 +63,19 @@ namespace SFSignup.WoW
 
     public enum PlayerClass
     {
-        DeathKnight,
-        DemonHunter,
-        Druid,
-        Hunter,
-        Mage,
-        Monk,
+        Unknown,
+        Warrior,
         Paladin,
-        Priest,
+        Hunter,
         Rogue,
+        Priest,
+        DeathKnight,
         Shaman,
+        Mage,
         Warlock,
-        Warrior
+        Monk,
+        Druid,
+        DemonHunter
+       
     }
 }
