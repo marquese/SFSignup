@@ -25,14 +25,19 @@ namespace SFSignup
             await db.InsertOneAsync(raider);
         }
 
+        internal static object GetEvents()
+        {
+            return Database.GetCollection<Event>(Settings.Mongo.Collections.Events).Find(FilterDefinition<Event>.Empty).ToList();
+        }
+
         internal static async Task AddEventAsync(Event newEvent)
         {
             var db = Database.GetCollection<Event>(Settings.Mongo.Collections.Events);
-
+           
             await db.InsertOneAsync(newEvent);
         }
 
-        public static async Task<IEnumerable<Event>> GetEventsAsync()
+        public static async Task<List<Event>> GetEventsAsync()
         {
             var result = await Database.GetCollection<Event>(Settings.Mongo.Collections.Events).FindAsync(FilterDefinition<Event>.Empty);
             return result.ToList();
@@ -62,6 +67,11 @@ namespace SFSignup
             }
         }
 
+        internal static Raider FindUserByID(ObjectId id)
+        {
+            return Database.GetCollection<Raider>(Settings.Mongo.Collections.Raiders).Find(new FilterDefinitionBuilder<Raider>().Eq(x=>x._id,id)).First();
+        }
+
         private static async Task<bool> CollectionExistsAsync(string collectionName)
         {
             var filter = new BsonDocument("name", collectionName);
@@ -69,10 +79,15 @@ namespace SFSignup
             return await collections.AnyAsync();
         }
 
-        public static async Task<IEnumerable<Raider>> GetRaidersAsync()
+        public static async Task<List<Raider>> GetRaidersAsync()
         {
             var result = await Database.GetCollection<Raider>(Settings.Mongo.Collections.Raiders).FindAsync(FilterDefinition<Raider>.Empty);
-            return result.ToEnumerable();
+            return result.ToList();
+        }
+
+        internal static void UpdateEvent(Event @event)
+        {
+            Database.GetCollection<Event>(Settings.Mongo.Collections.Events).ReplaceOne(new FilterDefinitionBuilder<Event>().Eq(x => x.ID, @event.ID), @event);
         }
 
         public static IEnumerable<Raider> GetRaiders()
