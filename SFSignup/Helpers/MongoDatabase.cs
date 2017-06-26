@@ -25,7 +25,7 @@ namespace SFSignup
             await db.InsertOneAsync(raider);
         }
 
-        internal static object GetEvents()
+        internal static List<Event> GetEvents()
         {
             return Database.GetCollection<Event>(Settings.Mongo.Collections.Events).Find(FilterDefinition<Event>.Empty).ToList();
         }
