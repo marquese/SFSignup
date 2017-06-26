@@ -18,7 +18,7 @@ namespace SFSignup
             RaidZones = await Blizzard.GetRaidZones();
           
            
-            Events = await MongoDatabase.GetEventsAsync();
+            //Events = await MongoDatabase.GetEventsAsync();
         }
 
         private static void Main(string[] args)
@@ -37,13 +37,13 @@ namespace SFSignup
             MongoDatabase.AddRaiderAsync(new Raider() { Name = "Aelinna" }),
             MongoDatabase.AddRaiderAsync(new Raider() { Name = "Mournhardt" }),
             */
-            Task.Run(async()=>{Raiders = await MongoDatabase.GetRaidersAsync(); })
+           
         };
             Task.WaitAll(tasks);
-            var @event = new Event() { Name = "My Test Raid", Location = RaidZones[0], StartTime = DateTime.Now - new TimeSpan(30, 0, 0, 0, 0), EndTime = DateTime.Now + new TimeSpan(1, 0, 0) };
-            foreach(var raider in Raiders)
-                @event.DPS.Add(raider);
-            MongoDatabase.AddEventAsync(@event).Wait();
+           // var @event = new Event() { Name = "My Test Raid", Location = RaidZones[0], StartTime = DateTime.Now - new TimeSpan(30, 0, 0, 0, 0), EndTime = DateTime.Now + new TimeSpan(1, 0, 0) };
+            //foreach(var raider in Raiders)
+            //    @event.DPS.Add(raider);
+            //MongoDatabase.AddEventAsync(@event).Wait();
             using (var host = new NancyHost(new Uri(url)))
             {
                 host.Start();
